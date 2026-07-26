@@ -1,0 +1,16 @@
+# Imagen de desarrollo del frontend.
+# El npm install se hace aca dentro para que node_modules quede en el
+# volumen anonimo del compose y no en la carpeta de Windows.
+
+FROM node:24-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm install
+
+COPY . .
+
+EXPOSE 5173
+
+CMD ["npm", "run", "dev"]

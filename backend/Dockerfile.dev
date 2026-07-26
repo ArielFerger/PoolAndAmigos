@@ -1,0 +1,11 @@
+# Imagen de desarrollo: el codigo llega por bind mount desde Windows,
+# asi que aca no se copia nada. Las dependencias se cachean en el
+# volumen nombrado maven-repo que monta docker compose en /root/.m2.
+
+FROM maven:3.9-eclipse-temurin-21
+
+WORKDIR /app
+
+EXPOSE 8080
+
+CMD ["mvn", "-B", "spring-boot:run"]

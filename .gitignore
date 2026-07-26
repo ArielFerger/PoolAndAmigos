@@ -1,0 +1,20 @@
+# Compilados
+target/
+dist/
+node_modules/
+
+# Variables de entorno: .env tiene secretos reales, .env.example si se versiona
+.env
+.env.local
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
+
+# Logs
+*.log
