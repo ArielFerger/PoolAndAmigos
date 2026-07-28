@@ -1,5 +1,6 @@
 package com.poolamigos.producto.dto;
 
+import com.poolamigos.juego.TipoJuego;
 import com.poolamigos.producto.CategoriaProducto;
 import com.poolamigos.producto.Producto;
 import com.poolamigos.producto.TipoProducto;
@@ -13,6 +14,7 @@ public record ProductoResponse(
         TipoProducto tipo,
         BigDecimal precio,
         Integer minutos,
+        TipoJuego tipoJuego,
         boolean activo
 ) {
     /*
@@ -28,6 +30,7 @@ public record ProductoResponse(
                 producto.getTipo(),
                 producto.getPrecio(),
                 producto.getMinutos(),
+                producto.getTipoJuego(),
                 producto.isActivo()
         );
     }

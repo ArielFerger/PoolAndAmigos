@@ -1,5 +1,6 @@
 package com.poolamigos.producto;
 
+import com.poolamigos.juego.TipoJuego;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
@@ -24,6 +25,11 @@ public class ProductoConsumo extends Producto {
 
     @Override
     public Integer getMinutos() {
+        return null;
+    }
+
+    @Override
+    public TipoJuego getTipoJuego() {
         return null;
     }
 }
