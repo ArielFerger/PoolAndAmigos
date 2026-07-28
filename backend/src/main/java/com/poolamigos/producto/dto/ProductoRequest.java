@@ -1,6 +1,7 @@
 package com.poolamigos.producto.dto;
 
 
+import com.poolamigos.juego.TipoJuego;
 import com.poolamigos.producto.CategoriaProducto;
 import com.poolamigos.producto.TipoProducto;
 import jakarta.validation.constraints.AssertTrue;
@@ -24,7 +25,8 @@ public record ProductoRequest(
         BigDecimal precio,
         @NotNull(message = "tipo obligatorio")
         TipoProducto tipo,
-        Integer minutos
+        Integer minutos,
+        TipoJuego tipoJuego
 ) {
     @AssertTrue(message = "minutos obligatorio y mayor a 0 para TIEMPO_MESA, y no debe enviarse para CONSUMO")
     public boolean isMinutosConsistente() {
@@ -33,5 +35,13 @@ public record ProductoRequest(
         }
         boolean tieneMinutosValidos = minutos != null && minutos > 0;
         return (tipo == TIEMPO_MESA) == tieneMinutosValidos;
+    }
+
+    @AssertTrue(message = "tipoJuego obligatorio para TIEMPO_MESA, y no debe enviarse para CONSUMO")
+    public boolean isTipoJuegoConsistente() {
+        if (tipo == null) {
+            return true;
+        }
+        return (tipo == TIEMPO_MESA) == (tipoJuego != null);
     }
 }

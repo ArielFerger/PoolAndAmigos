@@ -1,5 +1,6 @@
 package com.poolamigos.producto;
 
+import com.poolamigos.juego.TipoJuego;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -44,6 +45,9 @@ public abstract class Producto {
     public abstract TipoProducto getTipo();
 
     public abstract Integer getMinutos();
+
+    /** A que juego aplica este producto; null si no es de tiempo. */
+    public abstract TipoJuego getTipoJuego();
 
 }
 

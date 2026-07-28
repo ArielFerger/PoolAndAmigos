@@ -47,7 +47,7 @@ public class ProductoService {
         return switch (request.tipo()) {
             case CONSUMO -> new ProductoConsumo(request.nombre(), request.categoria(), request.precio());
             case TIEMPO_MESA -> new ProductoTiempoMesa(
-                    request.nombre(), request.categoria(), request.precio(), request.minutos());
+                    request.nombre(), request.categoria(), request.precio(), request.minutos(), request.tipoJuego());
         };
     }
 
@@ -69,6 +69,7 @@ public class ProductoService {
         existente.setPrecio(request.precio());
         if (existente instanceof ProductoTiempoMesa tiempoMesa) { // instanceof, comprueba que sea un objeto de ProductoTiempoMesa
             tiempoMesa.setMinutos(request.minutos());
+            tiempoMesa.setTipoJuego(request.tipoJuego());
         }
         return ProductoResponse.from(existente);
     }
